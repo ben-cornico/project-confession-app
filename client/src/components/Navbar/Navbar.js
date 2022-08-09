@@ -21,16 +21,20 @@ export class Navbar extends Component {
     return (
         <nav>
             <div className='container'>
-                    <div className="nav-toggler">
+                    <div className="nav-main center">
                         <span
-                            className={`mdi ${this.state.active ? "mdi-close" : "mdi-menu"}`}
+                            className={`mdi ${this.state.active ? "mdi-close" : "mdi-menu"} nav-toggler`}
                             onClick={this.toggleNav}>
                         </span>
+                        <div className="app-title center">
+                            <span className="mdi mdi-incognito"></span>
+                            <p>
+                                Confession App
+                            </p>
+                        </div>
                     </div>
-                    <div className="app-title">
-                        <span className="mdi mdi-incognito"></span>
-                        Confession App
-                    </div>
+
+
 
                     <ul className={this.state.active ? "nav-menu active" : "nav-menu"} >
                         <li className="nav-item">
@@ -51,8 +55,8 @@ export class Navbar extends Component {
                     </ul>
 
                     <form>
-                        <div className="nav-search">
-                            <input type="text" />
+                        <div className="nav-search center">
+                            <input type="text" className='search-bar'/>
                             <span className='mdi mdi-magnify'></span>
                         </div>
                     </form>

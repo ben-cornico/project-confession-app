@@ -28,3 +28,9 @@ ul {
   max-width: 1400px;
   margin: auto;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
