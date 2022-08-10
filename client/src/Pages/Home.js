@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getAll } from '../Data';
 import Card from '../components/Card/Card';
+import './Pages.css'
 
 export class Home extends Component {
     constructor() {
@@ -11,6 +12,7 @@ export class Home extends Component {
         }
         console.log(this.state)
     }
+    
     render() {
         return (
             <div className='confession-list'>

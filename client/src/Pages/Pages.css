@@ -1,0 +1,6 @@
+.confession-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-rows: auto;
+    gap: 1rem;
+}

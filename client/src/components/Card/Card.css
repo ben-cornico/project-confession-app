@@ -1,0 +1,25 @@
+.confession-card {
+    background-color: #d4d4d4;
+    border-radius: 1rem;
+}
+
+.confession-head {
+    display: flex;
+    gap: 1rem;
+    font-size: large;
+}
+
+.confession-category {
+    color: #ffffff;
+    width: 150px;
+    background-color: blueviolet;
+    text-align: center;
+}
+
+.confession-category, .confession-time {
+    padding: 0.5rem;
+}
+
+.confession-body, .views-counter {
+    padding: 1rem;
+}
