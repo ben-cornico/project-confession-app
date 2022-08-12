@@ -11,4 +11,4 @@ const confessionSchema = new Schema(
     }
 )
 
-module.exports = mongoose.model("confessions", confessionSchema)
+module.exports = mongoose.model("confessions_collection", confessionSchema)
