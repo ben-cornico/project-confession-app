@@ -1,0 +1,79 @@
+.select-box {
+    display: flex;
+    max-width: 600px;
+    flex-direction: column;
+    position: relative;
+}
+
+.confession-form {
+    background-color: #f7f6ff;
+    padding: 0.5rem;
+    height: 600px;
+}
+.select-box .options-container::-webkit-scrollbar {
+    width: 8px;
+    background: #0d141f;
+    border-radius: 0 7px 7px 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+    background-color: #4a4a4a;
+    border-radius: 0 7px 7px 0;
+}
+.select-box .options-container{
+    background-color: #2f3640;
+    color: #f7f6ff;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 7px;
+    overflow: hidden;
+    position: absolute;
+    top: 3.25rem;
+    order: 1;
+}
+
+.selected {
+    background-color: #2f3640;
+    border-radius: 7px;
+    color: #f5f6fa;
+    margin-bottom: 0.5rem;
+    position: relative;
+
+    order: 0;
+}
+
+.selected .mdi {
+    position: absolute;
+    margin: 0;
+    right: 1rem;
+    height: 100%;
+    font-size: large;
+}
+
+
+.select-box .options-container.active {
+    max-height: 300px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+
+
+
+.select-box .option, .selected {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+}
+
+.select-box label {
+    cursor: pointer;
+}
+
+.select-box .option:hover {
+    background-color: #414b59;
+}
+
+.select-box .option .cat-radio {
+    display: none;
+}
