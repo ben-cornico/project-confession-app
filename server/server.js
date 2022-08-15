@@ -18,10 +18,22 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 app.get('/confessions', async (req, res) => {
-    console.log("TEST")
     const confessions = await Confessions.find();
     res.send(confessions)
 })
+
+
+app.get('/confessions/:cat', async (req, res) => {
+
+    const cat = req.params.cat;
+    const confessionsRes = await Confessions.find({
+        category: cat,
+    })
+
+    res.send(confessionsRes)
+})
+
+
 
 app.get("/new", async (req, res) => {
     const confession = await Confessions.create({
@@ -33,6 +45,7 @@ app.get("/new", async (req, res) => {
     })
     res.json(confession)
 })
+
 
 app.get('/', (req, res) => {
     res.send({msg: "MAYAYT"})
