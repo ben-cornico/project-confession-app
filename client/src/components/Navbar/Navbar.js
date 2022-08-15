@@ -38,7 +38,7 @@ export class Navbar extends Component {
 
                     <ul className={this.state.active ? "nav-menu active" : "nav-menu"} >
                         <li className="nav-item">
-                            <Link className="nav-link" to="#">Home</Link>
+                            <Link className="nav-link" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="#">About</Link>
@@ -50,7 +50,7 @@ export class Navbar extends Component {
                             <Link className="nav-link" to="#">Contact</Link>
                         </li>
                         <li className="nav-item-btn">
-                            <Link className="nav-btn-submit" to="#">Submit Confession</Link>
+                            <Link className="nav-btn-submit" to="/confess">Submit Confession</Link>
                         </li>
                     </ul>
 
