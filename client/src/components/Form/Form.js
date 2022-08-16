@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './Form.css'
+import ReCAPTCHA from 'react-google-recaptcha';
+
+
 
 export class Form extends Component {
     constructor() {
@@ -11,6 +14,7 @@ export class Form extends Component {
         }
 
         this.selectOption = this.selectOption.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     selectOption(e) {
@@ -19,9 +23,19 @@ export class Form extends Component {
             selectOptionActive: false,
         })
     }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        console.log(e)
+        const token = e.target[8].value;
+        const body = e.target[7].value;
+        const cat = this.state.optionSelected;
+
+
+    }
   render() {
     return (
-      <form className='confession-form'>
+      <form className='confession-form' onSubmit={this.handleSubmit}>
         <div className="form-group">
             <div className="select-box">
                 <div className={this.state.selectOptionActive ? 'options-container active' : 'options-container'}>
@@ -75,10 +89,16 @@ export class Form extends Component {
             </div>
         </div>
 
-        <textarea name="confession" id="confession" placeholder='What is your confession?'></textarea>
+        <textarea name="confession" id="confession" className='confession-body' placeholder='What is your confession?'></textarea>
+        
+        <ReCAPTCHA className="recaptcha" sitekey={process.env.REACT_APP_SITE_KEY} size="normal" onErrored={(err) => console.log(err) }/>
+        
+        <button className='btn-confess'>Confess</button>
       </form>
     )
   }
 }
 
 export default Form
+
+
