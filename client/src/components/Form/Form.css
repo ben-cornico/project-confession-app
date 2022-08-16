@@ -1,6 +1,12 @@
+.confession-form {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 .select-box {
     display: flex;
-    max-width: 600px;
     flex-direction: column;
     position: relative;
 }
@@ -38,7 +44,7 @@
     background-color: #2f3640;
     border-radius: 7px;
     color: #f5f6fa;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
     position: relative;
 
     order: 0;
@@ -76,4 +82,33 @@
 
 .select-box .option .cat-radio {
     display: none;
+}
+
+.confession-body {
+    width: 100%;
+    height: 50%;
+    font-size: 1rem;
+}
+
+.btn-confess {
+    padding: 1rem;
+    width: 100%;
+    background-color: #647a9e;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+}
+
+
+.recaptch {
+    -webkit-transform: scale(0.77);
+    -moz-transform: scale(0.77);
+     -ms-transform: scale(0.77);
+      -o-transform: scale(0.77);
+         transform: scale(0.77);
+  -webkit-transform-origin: 0 0;
+     -moz-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+       -o-transform-origin: 0 0;
+          transform-origin: 0 0;
 }
