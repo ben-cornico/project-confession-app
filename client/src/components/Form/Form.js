@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Form.css'
 import ReCAPTCHA from 'react-google-recaptcha';
+import axios from '../../Axios';
 
 
 
@@ -24,13 +25,18 @@ export class Form extends Component {
         })
     }
 
-    handleSubmit(e) {
+    async handleSubmit (e) {
         e.preventDefault();
         console.log(e)
         const token = e.target[8].value;
         const body = e.target[7].value;
         const cat = this.state.optionSelected;
 
+        await axios.post('/confess', {token, body, cat})
+            .then(res => console.log(res))
+            .catch((error) => {
+                console.log(error)
+            })
 
     }
   render() {

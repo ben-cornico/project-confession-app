@@ -1,12 +1,15 @@
 const express = require('express');
-const cors = require('cors')
-const bodyParser = require('body-parser')
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const axios = require('axios')
 require("dotenv").config();
 const Confessions = require('./models/confessionSchema')
 
 
 const app = express();
 app.use(cors())
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 
 const mongoose = require('mongoose');
@@ -33,6 +36,25 @@ app.get('/confessions/:cat', async (req, res) => {
     res.send(confessionsRes)
 })
 
+app.post("/confess", async (req, res) => {
+    const { token, cat, body } = req.body;
+    console.log(req.body)
+    await axios.post(
+        `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.SECRET_KEY}&response=${token}`
+    )
+
+    if(res.status(200)) {
+        const confession = await Confessions.create({
+            category: cat,
+            body: body,
+            date: new Date(),
+            views: 0,
+        })
+        res.json(confession)
+    } else {
+        res.send("ROBOT")
+    }
+})
 
 
 app.get("/new", async (req, res) => {
