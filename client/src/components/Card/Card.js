@@ -2,18 +2,19 @@ import React from 'react';
 import './Card.css'
 
 function Card({data}) {
+    console.log(data)
   return (
     <div className='confession-card'>
-        <div className="confession-head">
-            <div className="confession-category">
+        <div className="confession-card-head">
+            <div className="confession-card-category">
                 {data.category}
             </div>
-            <div className="confession-time">
-                {data.time}
+            <div className="confession-card-time">
+                {data.date}
             </div>
         </div>
 
-        <div className="confession-body">
+        <div className="confession-card-body">
             {data.body}
         </div>
 

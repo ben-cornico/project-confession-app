@@ -3,23 +3,24 @@
     border-radius: 1rem;
 }
 
-.confession-head {
+.confession-card-head {
     display: flex;
     gap: 1rem;
     font-size: large;
 }
 
-.confession-category {
+.confession-card-category {
     color: #ffffff;
     width: 150px;
     background-color: blueviolet;
     text-align: center;
 }
 
-.confession-category, .confession-time {
+.confession-card-category, .confession-card-time {
     padding: 0.5rem;
 }
 
-.confession-body, .views-counter {
+.confession-card-body, .views-counter {
     padding: 1rem;
 }
+

@@ -97,7 +97,7 @@ export class Form extends Component {
 
         <textarea name="confession" id="confession" className='confession-body' placeholder='What is your confession?'></textarea>
         
-        <ReCAPTCHA className="recaptcha" sitekey={process.env.REACT_APP_SITE_KEY} size="normal" onErrored={(err) => console.log(err) }/>
+        <ReCAPTCHA className="recaptcha" sitekey={process.env.REACT_APP_SITE_KEY} size="normal" />
         
         <button className='btn-confess'>Confess</button>
       </form>
