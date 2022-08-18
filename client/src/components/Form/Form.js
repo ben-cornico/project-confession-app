@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Form.css'
-import ReCAPTCHA from 'react-google-recaptcha';
+import {ReCAPTCHA} from 'react-google-recaptcha';
 import axios from '../../Axios';
 
 
@@ -12,10 +12,12 @@ export class Form extends Component {
         this.state = {
             selectOptionActive: false,
             optionSelected: "",
+            recaptchaVal: ""
         }
 
+        this.recaptchaRef = React.createRef()
         this.selectOption = this.selectOption.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     selectOption(e) {
@@ -25,10 +27,11 @@ export class Form extends Component {
         })
     }
 
+
     async handleSubmit (e) {
         e.preventDefault();
         console.log(e)
-        const token = e.target[8].value;
+        const token = this.state.recaptchaVal
         const body = e.target[7].value;
         const cat = this.state.optionSelected;
 
@@ -38,6 +41,10 @@ export class Form extends Component {
                 console.log(error)
             })
 
+    }
+
+    test() {
+        console.log('loading done')
     }
   render() {
     return (
@@ -96,8 +103,10 @@ export class Form extends Component {
         </div>
 
         <textarea name="confession" id="confession" className='confession-body' placeholder='What is your confession?'></textarea>
+        <div className="recaptcha-container">
+        <ReCAPTCHA ref={this.recaptchaRef} sitekey="6LdOLH0hAAAAALvuM07bWaB_sUY7E_fajQDC9Oqw" onChange={(val) => this.setState({recaptchaVal: val})} onLoad={this.test}/>
+        </div>
         
-        <ReCAPTCHA className="recaptcha" sitekey={process.env.REACT_APP_SITE_KEY} size="normal" />
         
         <button className='btn-confess'>Confess</button>
       </form>

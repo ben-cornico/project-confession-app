@@ -2,7 +2,6 @@ import React from 'react';
 import './Card.css'
 
 function Card({data}) {
-    console.log(data)
   return (
     <div className='confession-card'>
         <div className="confession-card-head">
