@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css'
 
 export class Navbar extends Component {
@@ -38,19 +38,19 @@ export class Navbar extends Component {
 
                     <ul className={this.state.active ? "nav-menu active" : "nav-menu"} >
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Home</Link>
+                            <NavLink className="nav-link" to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="#">About</Link>
+                            <NavLink className="nav-link" to="#">About</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="#">Privacy</Link>
+                            <NavLink className="nav-link" to="#">Privacy</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="#">Contact</Link>
+                            <NavLink className="nav-link" to="#">Contact</NavLink>
                         </li>
                         <li className="nav-item-btn">
-                            <Link className="nav-btn-submit" to="/confess">Submit Confession</Link>
+                            <NavLink className="nav-btn-submit" to="/confess">Submit Confession</NavLink>
                         </li>
                     </ul>
 

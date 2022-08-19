@@ -11,7 +11,10 @@ function SubmitConfession() {
 
   return (
     <div>
-      <Form />
+      
+      <ReCAPTCHA
+                    sitekey={process.env.REACT_APP_SITE_KEY}
+                />
 
     </div>
   )

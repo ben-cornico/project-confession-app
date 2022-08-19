@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Form.css'
-import {ReCAPTCHA} from 'react-google-recaptcha';
+import ReCAPTCHA from 'react-google-recaptcha';
 import axios from '../../Axios';
 
 
@@ -8,16 +8,18 @@ import axios from '../../Axios';
 export class Form extends Component {
     constructor() {
         super();
-
+        
         this.state = {
             selectOptionActive: false,
             optionSelected: "",
-            recaptchaVal: ""
+            recaptchaVal: "",
+            load: false,
         }
 
         this.recaptchaRef = React.createRef()
         this.selectOption = this.selectOption.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.asyncScriptOnLoad = this.asyncScriptOnLoad.bind(this)
     }
 
     selectOption(e) {
@@ -43,9 +45,23 @@ export class Form extends Component {
 
     }
 
-    test() {
-        console.log('loading done')
+    asyncScriptOnLoad() {
+        console.log("MAYAT KUMAN")
     }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({load: true})
+        }, 1500)
+        
+
+    }
+
+
+    test() {
+        console.log("LOADED")
+    }
+
   render() {
     return (
       <form className='confession-form' onSubmit={this.handleSubmit}>
@@ -103,10 +119,16 @@ export class Form extends Component {
         </div>
 
         <textarea name="confession" id="confession" className='confession-body' placeholder='What is your confession?'></textarea>
-        <div className="recaptcha-container">
-        <ReCAPTCHA ref={this.recaptchaRef} sitekey="6LdOLH0hAAAAALvuM07bWaB_sUY7E_fajQDC9Oqw" onChange={(val) => this.setState({recaptchaVal: val})} onLoad={this.test}/>
-        </div>
-        
+
+                <ReCAPTCHA
+                    ref={this.recaptchaRef}
+                    sitekey={process.env.REACT_APP_SITE_KEY}
+                    onChange={(val) => this.setState({recaptchaVal: val})} 
+                    asyncScriptOnLoad={this.asyncScriptOnLoad}
+                    onLoad={this.test}
+                />
+
+            
         
         <button className='btn-confess'>Confess</button>
       </form>
