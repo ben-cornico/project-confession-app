@@ -3,3 +3,8 @@
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 1rem;
 }
+
+.form-page {
+    height: 100%;
+    background-color: antiquewhite;
+}

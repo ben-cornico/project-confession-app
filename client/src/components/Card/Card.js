@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Card.css'
 
 function Card({data}) {
   return (
     <div className='confession-card'>
         <div className="confession-card-head">
-            <div className="confession-card-category">
+            <Link className="confession-card-category" to={`/confessions/${data.category}`}>
                 {data.category}
-            </div>
+            </Link>
             <div className="confession-card-time">
                 {data.date}
             </div>

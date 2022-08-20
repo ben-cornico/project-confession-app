@@ -12,7 +12,7 @@ function Home() {
 
         const getConfessions = async () => {
             try {
-                const res = await axios.get('/confessions');
+                const res = await axios.get(`/confessions`);
                 setData(res.data)
             } catch(err) {
                 throw err
@@ -20,9 +20,6 @@ function Home() {
         }
 
         getConfessions()
-
-
-    
     }, [])
     
     

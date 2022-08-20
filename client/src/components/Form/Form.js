@@ -13,13 +13,11 @@ export class Form extends Component {
             selectOptionActive: false,
             optionSelected: "",
             recaptchaVal: "",
-            load: false,
         }
 
         this.recaptchaRef = React.createRef()
         this.selectOption = this.selectOption.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.asyncScriptOnLoad = this.asyncScriptOnLoad.bind(this)
     }
 
     selectOption(e) {
@@ -45,26 +43,11 @@ export class Form extends Component {
 
     }
 
-    asyncScriptOnLoad() {
-        console.log("MAYAT KUMAN")
-    }
-
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState({load: true})
-        }, 1500)
-        
-
-    }
-
-
-    test() {
-        console.log("LOADED")
-    }
 
   render() {
     return (
       <form className='confession-form' onSubmit={this.handleSubmit}>
+        <h1 className="title">Submit Confession</h1>
         <div className="form-group">
             <div className="select-box">
                 <div className={this.state.selectOptionActive ? 'options-container active' : 'options-container'}>
@@ -118,18 +101,7 @@ export class Form extends Component {
             </div>
         </div>
 
-        <textarea name="confession" id="confession" className='confession-body' placeholder='What is your confession?'></textarea>
-
-                <ReCAPTCHA
-                    ref={this.recaptchaRef}
-                    sitekey={process.env.REACT_APP_SITE_KEY}
-                    onChange={(val) => this.setState({recaptchaVal: val})} 
-                    asyncScriptOnLoad={this.asyncScriptOnLoad}
-                    onLoad={this.test}
-                />
-
-            
-        
+        <textarea name="confession" id="confession" className='confession-body' placeholder='What is your confession?'></textarea>    
         <button className='btn-confess'>Confess</button>
       </form>
     )

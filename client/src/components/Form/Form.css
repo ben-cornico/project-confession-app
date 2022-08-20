@@ -3,6 +3,9 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    background-color: #f7f6ff;
+    padding: 0.5rem;
+    width: 700px;
 }
 
 .select-box {
@@ -11,11 +14,7 @@
     position: relative;
 }
 
-.confession-form {
-    background-color: #f7f6ff;
-    padding: 0.5rem;
-    height: 600px;
-}
+
 .select-box .options-container::-webkit-scrollbar {
     width: 8px;
     background: #0d141f;
@@ -86,7 +85,7 @@
 
 .confession-body {
     width: 100%;
-    height: 50%;
+    height: 300px;
     font-size: 1rem;
 }
 
@@ -97,18 +96,4 @@
     border-radius: 8px;
     outline: none;
     border: none;
-}
-
-
-.recaptch {
-    -webkit-transform: scale(0.77);
-    -moz-transform: scale(0.77);
-     -ms-transform: scale(0.77);
-      -o-transform: scale(0.77);
-         transform: scale(0.77);
-  -webkit-transform-origin: 0 0;
-     -moz-transform-origin: 0 0;
-      -ms-transform-origin: 0 0;
-       -o-transform-origin: 0 0;
-          transform-origin: 0 0;
 }
