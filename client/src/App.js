@@ -13,6 +13,7 @@ function App() {
 
           <Routes>
               <Route exact path="/" element={<Home />}/>
+              <Route path="/confessions/:category" element={<Home />} />
               <Route exact path="/confess" element={<SubmitConfession />} />
           </Routes>
 
