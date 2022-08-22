@@ -30,7 +30,6 @@ export class Form extends Component {
 
     async handleSubmit (e) {
         e.preventDefault();
-        console.log(e)
         const token = this.state.recaptchaVal
         const body = e.target[7].value;
         const cat = this.state.optionSelected;

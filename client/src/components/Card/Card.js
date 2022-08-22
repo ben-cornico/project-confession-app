@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Card.css'
 
-function Card({data}) {
+function Card({data, selectCat}) {
   return (
     <div className='confession-card'>
         <div className="confession-card-head">
-            <Link className="confession-card-category" to={`/confessions/${data.category}`}>
+            <Link className="confession-card-category cat-link" to={`/${data.category}`} onClick={() => selectCat(data.category)}>
                 {data.category}
             </Link>
             <div className="confession-card-time">

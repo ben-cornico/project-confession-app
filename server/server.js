@@ -27,9 +27,8 @@ app.get('/confessions', async (req, res) => {
 
 
 app.get('/confessions/:cat', async (req, res) => {
+    console.log(req.params)
     const cat = req.params.cat;
-    console.log("TRIGGERED")
-    console.log(cat)
     const confessionsRes = await Confessions.find({
         category: cat,
     })
@@ -38,7 +37,6 @@ app.get('/confessions/:cat', async (req, res) => {
 
 app.post("/confess", async (req, res) => {
     const { cat, body } = req.body;
-    console.log(req.body)
     if(res.status(200)) {
         const confession = await Confessions.create({
             category: cat,

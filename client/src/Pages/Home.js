@@ -7,10 +7,9 @@ import { useParams } from 'react-router-dom';
 
 import React, { useEffect, useState } from 'react'
 
-function Home() {
+function Home(props) {
     const [data, setData] = useState([]);
     let { category } = useParams();
-    console.log(category)
     useEffect(() => {
         const getConfessions = async () => {
             try {
@@ -30,7 +29,7 @@ function Home() {
         {
             data.map((confession, index) => {
                 return (
-                    <Card data={confession} key={confession._id}/>
+                    <Card data={confession} key={confession._id} selectCat={props.selectCat}/>
                 )
             })
         }
