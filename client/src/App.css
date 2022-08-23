@@ -1,6 +1,11 @@
 .main-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
     align-items: center;
+}
+
+.cat-link {
+    text-decoration: none;
 }

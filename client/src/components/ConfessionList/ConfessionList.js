@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import Card from '../Card/Card'
 
-export class ConfessionList extends Component {
-  render() {
+
+function ConfessionList({confessions}) {
     return (
         <div className='confession-list'>
             {
-                data.map((confession, index) => {
+                confessions.map((confession, index) => {
                     return (
                         <Card data={confession} key={confession._id}/>
                     )
@@ -14,7 +15,6 @@ export class ConfessionList extends Component {
 
         </div>
     )
-  }
 }
 
 export default ConfessionList

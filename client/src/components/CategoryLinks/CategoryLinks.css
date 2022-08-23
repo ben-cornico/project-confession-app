@@ -1,0 +1,8 @@
+.cat-link {
+    color: #ffffff;
+}
+
+.cat-container > .cat-link {
+    background-color: #574a4a;
+    padding: 0.5rem;
+}
