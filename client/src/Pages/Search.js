@@ -4,27 +4,17 @@ import './Pages.css'
 import { useParams } from 'react-router-dom';
 import CategoryLinks from '../components/CategoryLinks/CategoryLinks';
 import ConfessionList from '../components/ConfessionList/ConfessionList';
-
-
-
 import React, { useEffect, useState } from 'react'
 
-function Home({searchParams}) {
+const Search = ({searchParams}) => {
     console.log(searchParams)
     const [data, setData] = useState([]);
-    let { category } = useParams();
-    let link = ""
-    if(!searchParams) {
-        link = category ? `/confessions/${category}` : '/confessions';
-        console.log("NOT SEARCH")
-    } else {
-        link = `/confessions/search/?search=${searchParams}`
-        console.log("SEARCH")
-    }
+    const [searchString, setSearchString] = useState(searchParams);
     useEffect(() => {
+        
         const getConfessions = async () => {
             try {
-                const res = await axios.get(link);
+                const res = await axios.get(`/confessions/search/?search=${searchParams}`);
                 setData(res.data)
             } catch(err) {
                 throw err
@@ -32,7 +22,15 @@ function Home({searchParams}) {
         }
 
         getConfessions()
-    }, [link])
+
+        return () => {
+            searchParams=""
+        }
+    }, [searchString]);
+
+    
+
+
   return (
     <>
         <CategoryLinks />
@@ -43,4 +41,4 @@ function Home({searchParams}) {
   )
 }
 
-export default Home
+export default Search

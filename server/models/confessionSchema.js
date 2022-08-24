@@ -11,4 +11,6 @@ const confessionSchema = new Schema(
     }
 )
 
+confessionSchema.index({ category: "text", body: "text" });
+
 module.exports = mongoose.model("confessions_collection", confessionSchema)

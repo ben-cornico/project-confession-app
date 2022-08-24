@@ -72,14 +72,22 @@
 
 // export default Navbar
 
-import React, { useState } from 'react'
-import { Link, NavLink, useParams } from 'react-router-dom';
+import React, { useState, useRef } from 'react'
+import { Link, NavLink, useParams, useNavigate } from 'react-router-dom';
 import './Navbar.css'
 
 function Navbar({submitSearch}) {
     const [active, setActive] = useState(false);
+    const searchRef = useRef();
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
-        submitSearch(e)
+        e.preventDefault();
+        let searchString = searchRef.current.value;
+        searchRef.current.value = ""
+        if(!searchString) return;
+
+        navigate(`/search/?search=${searchString}`);
+        searchString = ""
     }
 
   return (
@@ -120,7 +128,7 @@ function Navbar({submitSearch}) {
 
                 <form onSubmit={handleSubmit}>
                     <div className="nav-search center">
-                        <input type="text" className='search-bar' name="search" />
+                        <input type="text" className='search-bar' name="search" ref={searchRef} />
                         <span className='mdi mdi-magnify'></span>
                     </div>
                 </form>

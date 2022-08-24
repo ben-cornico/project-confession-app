@@ -8,8 +8,8 @@ function CategoryLinks() {
   return (
     <div className='cat-container'>
         <Link to="/" className='cat-link'>All</Link>
-        {categories.map(cat => {
-            return <Link to={`/${cat}`} className="cat-link">{cat}</Link>
+        {categories.map((cat, index) => {
+            return <Link to={`/${cat}`} className="cat-link" key={index}>{cat}</Link>
         })}
     </div>
   )

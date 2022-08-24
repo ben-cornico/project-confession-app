@@ -20,6 +20,15 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //express app
 
 
+app.get('/confessions/search', async (req, res) => {
+    const searchString = req.query.search;
+    const confession = await Confessions.find({
+        $text: { $search: searchString },
+    })
+
+    res.send(confession)
+})
+
 app.get('/confessions', async (req, res) => {
     const confessions = await Confessions.find();
     res.send(confessions)
