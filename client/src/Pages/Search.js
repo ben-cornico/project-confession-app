@@ -7,8 +7,8 @@ import ConfessionList from '../components/ConfessionList/ConfessionList';
 import React, { useEffect, useState } from 'react'
 
 const Search = ({searchParams}) => {
-    console.log(searchParams)
     const [data, setData] = useState([]);
+    const [test, setTest] = useState(0)
     const [searchString, setSearchString] = useState(searchParams);
     useEffect(() => {
         
@@ -23,10 +23,7 @@ const Search = ({searchParams}) => {
 
         getConfessions()
 
-        return () => {
-            searchParams=""
-        }
-    }, [searchString]);
+    }, [searchParams]);
 
     
 

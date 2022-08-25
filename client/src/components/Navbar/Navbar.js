@@ -86,8 +86,8 @@ function Navbar({submitSearch}) {
         searchRef.current.value = ""
         if(!searchString) return;
 
-        navigate(`/search/?search=${searchString}`);
-        searchString = ""
+        navigate(`/search/?search=${searchString}`, {replace: true});
+        window.location.reload(true)
     }
 
   return (
