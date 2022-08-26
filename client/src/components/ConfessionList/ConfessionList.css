@@ -1,0 +1,36 @@
+.confession-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1rem;
+}
+
+.Dreams-link {
+    background-color: #8a027b;
+}
+
+.Guilt-link {
+    background-color: #4d4d4d;
+}
+
+.Pain-link {
+    background-color: #89ccea;
+    color: #000;
+}
+
+.Wild-link {
+    background-color: #eb7e78;
+}
+
+.Regret-link {
+    background-color: #eeb29a;
+    color: #000;
+}
+
+.Fantasy-link {
+    background-color: #e87eb3 ;
+}
+
+.Other-link {
+    background-color: #c2c2c2;
+    color: #000;
+}

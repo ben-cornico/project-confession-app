@@ -29,6 +29,8 @@ app.get('/confessions/search', async (req, res) => {
     res.send(confession)
 })
 
+
+
 app.get('/confessions', async (req, res) => {
     const confessions = await Confessions.find();
     res.send(confessions)
