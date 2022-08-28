@@ -3,7 +3,8 @@ import Card from '../Card/Card';
 import './ConfessionList.css'
 
 
-function ConfessionList({confessions}) {
+function ConfessionList({confessions}) { 
+
     return (
         <div className='confession-list'>
             {

@@ -1,5 +1,4 @@
 import axios from '../Axios'
-import Card from '../components/Card/Card';
 import './Pages.css'
 import { useParams } from 'react-router-dom';
 import CategoryLinks from '../components/CategoryLinks/CategoryLinks';
@@ -13,14 +12,7 @@ function Home({searchParams}) {
     console.log(searchParams)
     const [data, setData] = useState([]);
     let { category } = useParams();
-    let link = ""
-    if(!searchParams) {
-        link = category ? `/confessions/${category}` : '/confessions';
-        console.log("NOT SEARCH")
-    } else {
-        link = `/confessions/search/?search=${searchParams}`
-        console.log("SEARCH")
-    }
+    let link = category ? `/confessions/${category}` : '/confessions';
     useEffect(() => {
         const getConfessions = async () => {
             try {
@@ -33,6 +25,25 @@ function Home({searchParams}) {
 
         getConfessions()
     }, [link])
+
+    useEffect(() => {
+    const handleScroll = event => {
+      //console.log('window.scrollY', window.scrollY);
+      let endOfPage = (window.innerHeight + window.scrollY >= document.body.offsetHeight)
+        if(endOfPage) {
+            console.log("END")
+        } else {
+            console.log("KEEP GOING")
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
         <CategoryLinks />
