@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Card.css'
+import moment from 'moment'
 
 function Card({data, selectCat}) {
     console.log(data.category)
@@ -11,7 +12,7 @@ function Card({data, selectCat}) {
                 {data.category}
             </Link>
             <div className="confession-card-time">
-                {data.date}
+                {moment(data.date).fromNow()}
             </div>
         </div>
 
