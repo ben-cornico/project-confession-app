@@ -32,8 +32,19 @@ app.get('/confessions/search', async (req, res) => {
 
 
 app.get('/confessions', async (req, res) => {
-    const confessions = await Confessions.find();
-    res.send(confessions)
+    const perPage = 3;
+    const page = req.query.page;
+
+    try {
+        const confessions = await Confessions.find()
+            .sort({date: -1})
+            .skip(perPage * page)
+            .limit(perPage)
+
+        res.send(confessions);
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 
