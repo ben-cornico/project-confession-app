@@ -29,12 +29,11 @@ app.get('/confessions/search', async (req, res) => {
     res.send(confession)
 })
 
-
-
 app.get('/confessions', async (req, res) => {
-    const perPage = 3;
+    const perPage = 12;
     const page = req.query.page;
-
+    console.log(page)
+    console.log(page)
     try {
         const confessions = await Confessions.find()
             .sort({date: -1})
@@ -49,12 +48,23 @@ app.get('/confessions', async (req, res) => {
 
 
 app.get('/confessions/:cat', async (req, res) => {
-    console.log(req.params)
     const cat = req.params.cat;
-    const confessionsRes = await Confessions.find({
-        category: cat,
-    })
-    res.send(confessionsRes)
+    console.log(cat)
+    const perPage = 12;
+    const page = req.query.page;
+
+    try {
+        const confessions = await Confessions.find({
+            category: cat,
+        })
+            .sort({date: -1})
+            .skip(perPage * page)
+            .limit(perPage)
+
+        res.send(confessions);
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 app.post("/confess", async (req, res) => {

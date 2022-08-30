@@ -5,6 +5,7 @@ import Home from './Pages/Home';
 import SubmitConfession from './Pages/SubmitConfession';
 import { useState, useEffect } from 'react';
 import Search from './Pages/Search';
+import Category from './Pages/Category';
 
 function App() {
   const searchParams = new URLSearchParams(window.location.search).get("search");
@@ -26,7 +27,7 @@ function App() {
               <Route exact path="/" element={<Home />}/>
               
               <Route path="/search/" element={<Search searchParams={searchString} />}/>
-              <Route path="/:category" element={<Home/>} />
+              <Route path="/:category" element={<Category/>} />
               <Route exact path="/confess" element={<SubmitConfession />} />
           </Routes>
 

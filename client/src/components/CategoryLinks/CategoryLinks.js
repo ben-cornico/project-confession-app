@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import './CategoryLinks.css'
 
 function CategoryLinks() {
-    console.log(categories)
   return (
     <div className='cat-container'>
         <Link to="/" className='cat-link'>All</Link>

@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react'
 import axios from '../Axios'
 
-export default function useGetAll(pageNumber) {
+export default function (pageNumber, category) {
 
     const [confessions, setConfessions] = useState([])
     useEffect(() => {
       axios({
         method: 'GET',
-        url: '/confessions',
-        params: {page: pageNumber-1}
+        url: `/confessions/${category}`,
+        params: {page: pageNumber}
       }).then(res => {
         setConfessions(res.data)
       })
     
     }, [pageNumber])
-    
-  return confessions
+    return confessions
 }

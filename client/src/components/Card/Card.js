@@ -4,7 +4,6 @@ import './Card.css'
 import moment from 'moment'
 
 function Card({data, selectCat}) {
-    console.log(data.category)
   return (
     <div className='confession-card'>
         <div className="confession-card-head">
