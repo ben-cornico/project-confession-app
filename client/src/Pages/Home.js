@@ -9,7 +9,7 @@ import useGetAll from '../Confessions/useGetAll'
 import React, { useState } from 'react'
 
 function Home() {
-    const [pageNumber, setPageNumber] = useState(2);
+    const [pageNumber, setPageNumber] = useState(1);
     
     
     const data = useGetAll(pageNumber)

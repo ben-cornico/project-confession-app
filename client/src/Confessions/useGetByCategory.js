@@ -8,7 +8,7 @@ export default function (pageNumber, category) {
       axios({
         method: 'GET',
         url: `/confessions/${category}`,
-        params: {page: pageNumber}
+        params: {page: pageNumber-1}
       }).then(res => {
         setConfessions(res.data)
       })

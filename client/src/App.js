@@ -10,12 +10,6 @@ import Category from './Pages/Category';
 function App() {
   const searchParams = new URLSearchParams(window.location.search).get("search");
   const [searchString, setSearchString] = useState("");
-  useEffect(() => {
-    setSearchString(searchParams)
-  
-  }, [searchParams])
-  
-
 
   return (
     <>
@@ -26,7 +20,7 @@ function App() {
           <Routes>
               <Route exact path="/" element={<Home />}/>
               
-              <Route path="/search/" element={<Search searchParams={searchString} />}/>
+              <Route path="/search/" element={<Search searchParams={searchParams} />}/>
               <Route path="/:category" element={<Category/>} />
               <Route exact path="/confess" element={<SubmitConfession />} />
           </Routes>

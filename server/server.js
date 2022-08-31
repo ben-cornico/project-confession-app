@@ -21,19 +21,27 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 app.get('/confessions/search', async (req, res) => {
-    const searchString = req.query.search;
-    const confession = await Confessions.find({
-        $text: { $search: searchString },
-    })
+    const perPage = 12;
+    const { page, q } = req.query;
 
-    res.send(confession)
+    try {
+        const confessions = await Confessions.find({
+            $text: { $search: q },
+        })
+            .sort({ date: -1 })
+            .skip(perPage * page)
+            .limit(perPage)
+        
+        res.send(confessions)
+    } catch(error) {
+        console.log(error)
+    }
+    
 })
 
 app.get('/confessions', async (req, res) => {
     const perPage = 12;
     const page = req.query.page;
-    console.log(page)
-    console.log(page)
     try {
         const confessions = await Confessions.find()
             .sort({date: -1})
@@ -60,7 +68,6 @@ app.get('/confessions/:cat', async (req, res) => {
             .sort({date: -1})
             .skip(perPage * page)
             .limit(perPage)
-
         res.send(confessions);
     } catch (error) {
         console.log(error)
