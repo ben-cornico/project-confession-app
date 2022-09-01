@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { Link } from 'react-router-dom';
 import './Card.css'
 import moment from 'moment'
 
-function Card({data, selectCat}) {
+function Card({data, selectCat}, ref) {
   return (
-    <div className='confession-card'>
+    <>
+    <div className='confession-card' ref={ref}>
         <div className="confession-card-head">
             <Link className={`confession-card-category ${data.category}-link cat-link`} to={`/${data.category}`} onClick={() => selectCat(data.category)}>
                 {data.category}
@@ -23,7 +24,11 @@ function Card({data, selectCat}) {
             {data.views}
         </div>
     </div>
+    
+    </>
   )
 }
 
-export default Card
+const forwaredRef = React.forwardRef(Card)
+
+export default forwaredRef
