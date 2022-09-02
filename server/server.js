@@ -40,14 +40,15 @@ app.get('/confessions/search', async (req, res) => {
 })
 
 app.get('/confessions', async (req, res) => {
-    const perPage = 12;
+    const perPage = 21;
     const page = req.query.page;
+    const num = perPage * page;
+    console.log("IM CALLED")
     try {
         const confessions = await Confessions.find()
             .sort({date: -1})
-            .skip(perPage * page)
+            .skip(num)
             .limit(perPage)
-
         res.send(confessions);
     } catch (error) {
         console.log(error)

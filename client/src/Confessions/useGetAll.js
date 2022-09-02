@@ -13,9 +13,8 @@ export default function useGetAll(pageNumber) {
         url: '/confessions',
         params: {page: pageNumber-1}
       }).then(res => {
-        setConfessions(prevConfessions => {
-          return [...prevConfessions, res.data]
-        })
+        console.log(res.data)
+        setConfessions(prevConfessions => [...prevConfessions, ...res.data])
         setHasMore(res.data > 0);
         setLoading(false)
       }).catch(e => {
@@ -25,6 +24,5 @@ export default function useGetAll(pageNumber) {
 
     }, [pageNumber])
 
-    
   return {confessions, loading, error, hasMore}
 }

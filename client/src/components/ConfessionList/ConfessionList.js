@@ -5,13 +5,13 @@ import './ConfessionList.css'
 
 function ConfessionList(props) { 
     const { confessions, hasMore, loading } = props.data
-    console.log(props)
     const observer = useRef()
     const lastConfessionRef = useCallback(node => {
         //props.nextPage();
         if(observer.current) observer.current.disconnect();
         observer.current = new IntersectionObserver(entries => {
             if(entries[0].isIntersecting ) {
+                console.log(node)
                 props.nextPage()
             }
         })
