@@ -4,6 +4,7 @@ import './ConfessionList.css'
 
 
 function ConfessionList(props) { 
+    console.log(props)
     const { confessions, hasMore, loading } = props.data
     const observer = useRef()
     const lastConfessionRef = useCallback(node => {

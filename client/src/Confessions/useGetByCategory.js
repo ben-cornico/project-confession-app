@@ -10,6 +10,7 @@ export default function (pageNumber, category) {
         url: `/confessions/${category}`,
         params: {page: pageNumber-1}
       }).then(res => {
+        console.log(res.data)
         setConfessions(res.data)
       })
     

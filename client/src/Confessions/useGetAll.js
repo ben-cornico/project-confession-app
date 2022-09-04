@@ -14,8 +14,8 @@ export default function useGetAll(pageNumber) {
         params: {page: pageNumber-1}
       }).then(res => {
         console.log(res.data)
-        setConfessions(res.data)
-        setHasMore(res.data > 0);
+        setConfessions([...confessions, ...res.data])
+        setHasMore(res.data.length > 0);
         setLoading(false)
       }).catch(e => {
         if(axios.isCancel(e)) return
