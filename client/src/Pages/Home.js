@@ -20,23 +20,24 @@ function Home() {
       error
     } = useGetAll(pageNumber);
 
-    console.log(current)
-    useEffect(() => {
-      setCurrent(confessions)
+    // console.log(current)
+    // useEffect(() => {
+    //   setCurrent(confessions)
     
-    }, [confessions])
-    const lastConfessionRef = useCallback(node => {
-        if(observer.current) observer.current.disconnect();
-        observer.current = new IntersectionObserver(entries => {
-            if(entries[0].isIntersecting ) {
-                nextPage()
-            }
-        })
-        if(node) observer.current.observe(node)
-    },[loading])
-    const nextPage = () => {
-      setPageNumber(pageNumber+1)
-      console.log(":")
+    // }, [confessions])
+    // const lastConfessionRef = useCallback(node => {
+    //     if(observer.current) observer.current.disconnect();
+    //     observer.current = new IntersectionObserver(entries => {
+    //         if(entries[0].isIntersecting ) {
+    //             nextPage()
+    //         }
+    //     })
+    //     if(node) observer.current.observe(node)
+    // },[loading])
+    const nextPage = (pageNum) => {
+      pageNum += 1;
+      setPageNumber(pageNum)
+      console.log(pageNum)
     }
 
   return (
@@ -44,18 +45,20 @@ function Home() {
         <CategoryLinks />
         {
           error ? "AN ERROR HAS OCCURED" : (
-            <div className='confession-list'>
-            {
-                current.map((confession, index) => {
-                    if(current.length === index + 1) {
-                        return <Card data={confession} key={index} ref={lastConfessionRef} />
-                    } else {
-                        return <Card data={confession} key={index} />
-                    }
-                })
-            }
+            // <div className='confession-list'>
+            // {
+            //     confessions.map((confession, index) => {
+            //         if(confessions.length === index + 1) {
+            //             return <Card data={confession} key={index} ref={lastConfessionRef} />
+            //         } else {
+            //             return <Card data={confession} key={index} />
+            //         }
+            //     })
+            // }
 
-            </div>
+            // </div>
+
+            <ConfessionList data={{confessions, loading, pageNumber}} nextPage={nextPage}/>
           )
         }
 

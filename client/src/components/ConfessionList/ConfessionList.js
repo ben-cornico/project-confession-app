@@ -4,8 +4,8 @@ import './ConfessionList.css'
 
 
 function ConfessionList(props) { 
-    console.log(props)
-    const { confessions, hasMore, loading } = props.data
+    console.log(props.data)
+    const { confessions, loading, page } = props.data
     const observer = useRef()
     const lastConfessionRef = useCallback(node => {
         //props.nextPage();
@@ -13,7 +13,7 @@ function ConfessionList(props) {
         observer.current = new IntersectionObserver(entries => {
             if(entries[0].isIntersecting ) {
                 console.log(node)
-                props.nextPage()
+                props.nextPage(page)
             }
         })
         if(node) observer.current.observe(node)
@@ -30,6 +30,8 @@ function ConfessionList(props) {
                     }
                 })
             }
+
+            <div>{loading && "LOADING..."}</div>
 
         </div>
     )

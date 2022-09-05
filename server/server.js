@@ -21,7 +21,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 app.get('/confessions/search', async (req, res) => {
-    const perPage = 12;
+    const perPage = 15;
     const { page, q } = req.query;
 
     try {
@@ -31,7 +31,6 @@ app.get('/confessions/search', async (req, res) => {
             .sort({ date: -1 })
             .skip(perPage * page)
             .limit(perPage)
-        
         res.send(confessions)
     } catch(error) {
         console.log(error)
@@ -40,7 +39,7 @@ app.get('/confessions/search', async (req, res) => {
 })
 
 app.get('/confessions', async (req, res) => {
-    const perPage = 21;
+    const perPage = 15;
     const page = req.query.page;
     const num = perPage * page;
     console.log("IM CALLED")
@@ -49,6 +48,7 @@ app.get('/confessions', async (req, res) => {
             .sort({date: -1})
             .skip(num)
             .limit(perPage)
+            console.log(confessions.length)
         res.send(confessions);
     } catch (error) {
         console.log(error)
