@@ -4,15 +4,13 @@ import './ConfessionList.css'
 
 
 function ConfessionList(props) { 
-    console.log(props.data)
-    const { confessions, loading, pageNumber } = props.data
+    const { confessions, loading, pageNumber, hasMore } = props.data
     const observer = useRef()
     const lastConfessionRef = useCallback(node => {
         //props.nextPage();
         if(observer.current) observer.current.disconnect();
         observer.current = new IntersectionObserver(entries => {
-            if(entries[0].isIntersecting ) {
-                console.log("PREV PAGE", pageNumber)
+            if(entries[0].isIntersecting && hasMore ) {
                 props.nextPage(pageNumber + 1)
             }
         })

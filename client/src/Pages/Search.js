@@ -24,7 +24,6 @@ const Search = ({searchParams}) => {
       });
     }
 
-    console.log(confessions)
   return (
     <>
         <CategoryLinks />

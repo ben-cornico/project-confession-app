@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from '../Axios'
 
 export default function useGetAll(pageNumber) {
-    console.log("GET ALL")
     const [confessions, setConfessions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);

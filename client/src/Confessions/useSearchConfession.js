@@ -22,6 +22,5 @@ export default function useSearchConfession(pageNumber, searchQuery) {
 
     }, [pageNumber, searchQuery])
 
-    console.log(confessions)
   return {confessions, loading, error, hasMore}
 }
