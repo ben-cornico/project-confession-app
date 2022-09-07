@@ -1,51 +1,23 @@
-import React, { Component } from 'react';
-import './Form.css'
-import ReCAPTCHA from 'react-google-recaptcha';
-import axios from '../../Axios';
+import React, { Component } from 'react'
 
-
-
-export class Form extends Component {
+export class CategoryDropdown extends Component {
     constructor() {
         super();
-        
         this.state = {
             selectOptionActive: false,
             optionSelected: "",
             recaptchaVal: "",
         }
-
-        this.recaptchaRef = React.createRef()
-        this.selectOption = this.selectOption.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     selectOption(e) {
         this.setState({
             optionSelected: e.target.lastChild.innerText,
-            selectOptionActive: false,
+            selectOption: false,
         })
     }
-
-    async handleSubmit (e) {
-        e.preventDefault();
-        const token = this.state.recaptchaVal
-        const body = e.target[7].value;
-        const cat = this.state.optionSelected;
-
-        await axios.post('/confess', {token, body, cat})
-            .then(res => console.log(res))
-            .catch((error) => {
-                console.log(error)
-            })
-
-    }
-
-
   render() {
     return (
-      <form className='confession-form' onSubmit={this.handleSubmit}>
-        <h1 className="title">Submit Confession</h1>
         <div className="form-group">
             <div className="select-box">
                 <div className={this.state.selectOptionActive ? 'options-container active' : 'options-container'}>
@@ -98,14 +70,8 @@ export class Form extends Component {
                 </div>
             </div>
         </div>
-
-        <textarea name="confession" id="confession" className='confession-body' placeholder='What is your confession?'></textarea>    
-        <button className='btn-confess'>Confess</button>
-      </form>
     )
   }
 }
 
-export default Form
-
-
+export default CategoryDropdown

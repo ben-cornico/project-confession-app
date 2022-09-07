@@ -5,13 +5,10 @@ import moment from 'moment'
 import ConfessionList from '../ConfessionList/ConfessionList';
 
 function Card({data, selectCat}, ref) {
-const handleClick = (card) => {
-    console.log(card)
-}
 
   return (
     <>
-    <div className='confession-card' ref={ref} onClick={() => handleClick(data._id)}>
+    <div className='confession-card' ref={ref}>
         <div className="confession-card-head">
             <Link className={`confession-card-category ${data.category}-link cat-link`} to={`/${data.category}`} onClick={() => selectCat(data.category)}>
                 {data.category}
