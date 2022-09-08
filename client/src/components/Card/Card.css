@@ -1,6 +1,9 @@
 .confession-card {
     background-color: #d4d4d4;
     border-radius: 1rem;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 6.9rem auto;
 }
 
 .confession-card-head {
@@ -25,3 +28,11 @@
 }
 
 
+.confession-card-body {
+    text-overflow:ellipsis;
+    overflow:hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}

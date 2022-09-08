@@ -46,7 +46,6 @@ app.get('/confessions', async (req, res) => {
             .sort({date: -1})
             .skip(num)
             .limit(perPage)
-            console.log(confessions.length)
         res.send(confessions);
     } catch (error) {
         console.log(error)
