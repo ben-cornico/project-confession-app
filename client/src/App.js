@@ -6,10 +6,10 @@ import SubmitConfession from './Pages/SubmitConfession';
 import { useState, useEffect } from 'react';
 import Search from './Pages/Search';
 import Category from './Pages/Category';
+import View from './Pages/View';
 
 function App() {
   const searchParams = new URLSearchParams(window.location.search).get("search");
-  const [searchString, setSearchString] = useState("");
 
   return (
     <>
@@ -23,6 +23,7 @@ function App() {
               <Route path="/search/" element={<Search searchParams={searchParams} />}/>
               <Route path="/:category" element={<Category/>} />
               <Route exact path="/confess" element={<SubmitConfession />} />
+              <Route path="/test" element={<View />}></Route>
           </Routes>
 
         </div>

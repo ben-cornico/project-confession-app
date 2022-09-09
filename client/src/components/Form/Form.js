@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Form.css'
-import ReCAPTCHA from 'react-google-recaptcha';
 import axios from '../../Axios';
 
 
