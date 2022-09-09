@@ -23,6 +23,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.get('/confessions/search', async (req, res) => {
     const perPage = 15;
     const { page, q } = req.query;
+    console.log(q)
     try {
         const confessions = await Confessions.find({
             $text: { $search: q },
