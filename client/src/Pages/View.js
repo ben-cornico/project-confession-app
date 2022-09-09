@@ -1,10 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import moment from 'moment';
 
 function View() {
+    const { id } = useParams();
+    console.log("VIEW")
   return (
     <>
+    <h1>asdasd</h1>
         <div className='card-view'>
             <div className='confession-card'>
                 <div className="confession-card-head">

@@ -3,17 +3,12 @@ import './Pages.css'
 import CategoryLinks from '../components/CategoryLinks/CategoryLinks';
 import ConfessionList from '../components/ConfessionList/ConfessionList';
 import useGetByCategory from '../Confessions/useGetByCategory';
-import Card from '../components/Card/Card'
-
-
-
-import React, { useState, useCallback, useRef, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
 function Category() {
     const [pageNumber, setPageNumber] = useState(1);
     const { category } = useParams()
-
 
     useEffect(() => {
       setPageNumber(1)

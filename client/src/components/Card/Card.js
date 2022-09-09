@@ -1,14 +1,16 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Card.css'
 import moment from 'moment'
-import ConfessionList from '../ConfessionList/ConfessionList';
+import { useNavigate } from 'react-router-dom'
 
 function Card({data, selectCat}, ref) {
 
+    const navigate = useNavigate();
+
   return (
     <>
-    <div className='confession-card' ref={ref}>
+    <div className='confession-card' ref={ref} onClick={() => navigate(`/${data._id}`)}>
         <div className="confession-card-head">
             <Link className={`confession-card-category ${data.category}-link cat-link`} to={`/${data.category}`} onClick={() => selectCat(data.category)}>
                 {data.category}

@@ -70,6 +70,20 @@ app.get('/confessions/:cat', async (req, res) => {
     } catch (error) {
         console.log(error)
     }
+});
+
+app.post('/confessions/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const confession = await Confessions.find({
+            _id: id
+        })
+        
+        res.send(confession);
+    } catch(error) {
+        console.log(error)
+    }
 })
 
 app.post("/confess", async (req, res) => {
