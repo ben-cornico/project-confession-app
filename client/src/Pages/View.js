@@ -4,7 +4,6 @@ import moment from 'moment';
 
 function View() {
     const { id } = useParams();
-    console.log("VIEW")
   return (
     <>
     <h1>asdasd</h1>

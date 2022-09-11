@@ -1,4 +1,3 @@
-import axios from '../Axios'
 import './Pages.css'
 import CategoryLinks from '../components/CategoryLinks/CategoryLinks';
 import ConfessionList from '../components/ConfessionList/ConfessionList';

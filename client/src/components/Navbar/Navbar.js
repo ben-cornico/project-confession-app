@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Navbar.css'
 
-function Navbar({submitSearch}) {
+function Navbar() {
     const [active, setActive] = useState(false);
     const searchRef = useRef();
     const navigate = useNavigate();

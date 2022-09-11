@@ -5,6 +5,7 @@ const categories = [
     "Wild",
     "Regret",
     "Fantasy",
+    "Truth",
     "Other"
 ]
 
