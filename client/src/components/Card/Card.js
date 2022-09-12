@@ -5,7 +5,6 @@ import moment from 'moment'
 import { useNavigate } from 'react-router-dom'
 
 function Card({data, selectCat}, ref) {
-
     const navigate = useNavigate();
 
   return (

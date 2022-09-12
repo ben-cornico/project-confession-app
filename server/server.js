@@ -77,12 +77,11 @@ app.get('/confession/:id', async (req, res) => {
     const id = req.params.id;
     console.log(id)
     try {
-        const confession = await Confessions.update({
+        const confession = await Confessions.findByIdAndUpdate({
             _id: id
         }, {
             $inc: { views: 1 }
         })
-        console.log(confession)
         res.send(confession);
     } catch(error) {
         console.log(error)

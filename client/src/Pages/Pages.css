@@ -6,9 +6,17 @@
 }
 
 .card-view {
-    width: 80%;
+    width: 1100px;
     height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.card-view > .confession-card {
+    width: 100%;
+}
+
+.card-view > .confession-card > .confession-card-body {
+    height: 1110px;
 }

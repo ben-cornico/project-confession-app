@@ -1,32 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import {Link, useParams} from 'react-router-dom'
-import moment from 'moment';
-import axios from '../Axios';
-import Axios from 'axios'
+import Card from '../components/Card/Card'
 import useGetConfessionById from '../Confessions/useGetConfessionById';
 
 function View() {
     const { id } = useParams();
-    const [error, setError] = useState(false);
-    const [confession, setConfession] = useState({})
-    
-    useEffect(() => {
-        axios({
-            method: 'GET',
-            url: `/confession/${id}`,
-        }).then(res => {
-            setConfession(res.data);
-        }).catch(e => {
-            if(axios.isCancel(e)) return
-            setError(true)
-        })
-        console.log("I RUN ONCE")
-    }, [])
+    const {
+        confession,
+        error
+    } = useGetConfessionById(id);
+    console.log(confession)
   return (
     <>
-    <h1>asdasd</h1>
         <div className='card-view'>
-            <div className='confession-card'>
+            <Card data={confession} />
+            {/* <div className='confession-card'>
                 <div className="confession-card-head">
                     <Link className={`confession-card-category Pain-link cat-link`} to={`/Pain}`}>
                         Pain
@@ -43,7 +31,7 @@ function View() {
                 <div className="views-counter">
                 0
                 </div>
-            </div>
+            </div> */}
             <button>Report</button>
         </div>
     </>

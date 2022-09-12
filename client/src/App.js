@@ -10,9 +10,6 @@ import View from './Pages/View';
 function App() {
   const searchParams = new URLSearchParams(window.location.search).get("search");
   
-  const {id, category} = useParams();
-  console.log(id);
-  console.log(category)
   return (
     <>
         <Navbar/>
