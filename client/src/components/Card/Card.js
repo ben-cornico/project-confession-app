@@ -10,8 +10,8 @@ function Card({data, selectCat}, ref) {
 
   return (
     <>
-    <div className='confession-card' ref={ref} onClick={() => navigate(`/${data._id}`)}>
-        <div className="confession-card-head">
+    <div className='confession-card' ref={ref} >
+        <div className="confession-card-head" >
             <Link className={`confession-card-category ${data.category}-link cat-link`} to={`/${data.category}`} onClick={() => selectCat(data.category)}>
                 {data.category}
             </Link>
@@ -20,7 +20,7 @@ function Card({data, selectCat}, ref) {
             </div>
         </div>
 
-        <div className="confession-card-body">
+        <div className="confession-card-body"  onClick={() => navigate(`/confession/${data._id}`)}>
             {data.body}
         </div>
 

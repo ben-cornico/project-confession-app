@@ -1,21 +1,26 @@
 import { useEffect, useState } from 'react';
 import axios from '../Axios';
+import Axios from 'axios'
 
-export default function useSearchConfession(pageNumber, searchQuery) {
+export default function useGetConfessionById(id) {
     const [confession, setConfession] = useState({})
+    const [error, setError] = useState(false)
+    const source = Axios.CancelToken.source();
     useEffect(() => {
         axios({
-        method: 'GET',
-        url: `/confessions/:id`,
-        params: {page: pageNumber-1, q: searchQuery}
+            method: 'GET',
+            url: `/confession/${id}`,
         }).then(res => {
+            console.log(res.data)
             setConfession(res.data);
         }).catch(e => {
             if(axios.isCancel(e)) return
             setError(true)
         })
+        return () => {
+            source.cancel();
+        }
+    }, [])
 
-    }, [pageNumber, searchQuery])
-
-  return confession
+  return null
 }

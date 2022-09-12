@@ -23,7 +23,7 @@ function App() {
               <Route exact path="/" element={<Home />}/>
               
               <Route path="/search/" element={<Search searchParams={searchParams} />}/>
-              <Route path="/:id" element={<View />} />
+              <Route path="/confession/:id" element={<View />} />
               <Route path="/:category" element={<Category/>} />
               
               

@@ -7,19 +7,19 @@ export default function (pageNumber, category) {
     const [hasMore, setHasMore] = useState(false)
     const [confessions, setConfessions] = useState([])
     useEffect(() => {
-
+      console.log(category)
       axios({
         method: 'GET',
         url: `/confessions/${category}`,
         params: {page: pageNumber-1}
       }).then(res => {
-      if(pageNumber === 1) {
-        setConfessions([...res.data]);
-      } else {
-
-        setConfessions([...confessions, ...res.data]);
-      }
+        if(pageNumber === 1) {
+          setConfessions([...res.data]);
+        } else {
+          setConfessions([...confessions, ...res.data]);
+        }
         setHasMore(res.data.length > 0)
+        console.log(res.data)
         setLoading(false)
       }).catch(e => {
         if(axios.isCancel(e)) return

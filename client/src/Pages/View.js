@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link, useParams} from 'react-router-dom'
 import moment from 'moment';
+import axios from '../Axios';
+import Axios from 'axios'
+import useGetConfessionById from '../Confessions/useGetConfessionById';
 
 function View() {
     const { id } = useParams();
+    const [error, setError] = useState(false);
+    const [confession, setConfession] = useState({})
+    
+    useEffect(() => {
+        axios({
+            method: 'GET',
+            url: `/confession/${id}`,
+        }).then(res => {
+            setConfession(res.data);
+        }).catch(e => {
+            if(axios.isCancel(e)) return
+            setError(true)
+        })
+        console.log("I RUN ONCE")
+    }, [])
   return (
     <>
     <h1>asdasd</h1>

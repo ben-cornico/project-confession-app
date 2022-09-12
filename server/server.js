@@ -58,7 +58,6 @@ app.get('/confessions/:cat', async (req, res) => {
     const cat = req.params.cat;
     const perPage = 12;
     const page = req.query.page;
-
     try {
         const confessions = await Confessions.find({
             category: cat,
@@ -72,14 +71,18 @@ app.get('/confessions/:cat', async (req, res) => {
     }
 });
 
-app.post('/confessions/:id', async (req, res) => {
-    const id = req.params.id;
 
+
+app.get('/confession/:id', async (req, res) => {
+    const id = req.params.id;
+    console.log(id)
     try {
-        const confession = await Confessions.find({
+        const confession = await Confessions.update({
             _id: id
+        }, {
+            $inc: { views: 1 }
         })
-        
+        console.log(confession)
         res.send(confession);
     } catch(error) {
         console.log(error)
