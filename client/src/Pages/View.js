@@ -2,19 +2,21 @@ import React, { useState, useEffect } from 'react';
 import {Link, useParams} from 'react-router-dom'
 import Card from '../components/Card/Card'
 import useGetConfessionById from '../Confessions/useGetConfessionById';
+import axios from '../Axios'
 
 function View() {
-    const { id } = useParams();
+    const { id } = useParams();    
     const {
         confession,
         error
     } = useGetConfessionById(id);
-    console.log(confession)
   return (
     <>
         <div className='card-view'>
-            <Card data={confession} />
-            <button>Report</button>
+          {
+            error ? "AN ERROR HAS OCCURED" : <Card data={confession} />
+          }
+            
         </div>
     </>
   )

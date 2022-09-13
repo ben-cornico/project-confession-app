@@ -1,7 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
-const axios = require('axios')
 require("dotenv").config();
 const Confessions = require('./models/confessionSchema')
 
@@ -23,7 +21,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.get('/confessions/search', async (req, res) => {
     const perPage = 15;
     const { page, q } = req.query;
-    console.log(q)
     try {
         const confessions = await Confessions.find({
             $text: { $search: q },
@@ -75,7 +72,6 @@ app.get('/confessions/:cat', async (req, res) => {
 
 app.get('/confession/:id', async (req, res) => {
     const id = req.params.id;
-    console.log(id)
     try {
         const confession = await Confessions.findByIdAndUpdate({
             _id: id

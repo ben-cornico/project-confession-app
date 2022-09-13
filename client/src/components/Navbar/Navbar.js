@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, Link } from 'react-router-dom';
 import './Navbar.css'
 
 function Navbar() {
@@ -24,12 +24,12 @@ function Navbar() {
                         className={`mdi ${active ? "mdi-close" : "mdi-menu"} nav-toggler`}
                         onClick={() => setActive(!active)}>
                     </span>
-                    <div className="app-title center">
+                    <Link to="/" className="app-title center">
                         <span className="mdi mdi-incognito"></span>
                         <p>
                             Confession App
                         </p>
-                    </div>
+                    </Link>
                 </div>
 
 
@@ -39,10 +39,10 @@ function Navbar() {
                         <NavLink className="nav-link" to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="#">About</NavLink>
+                        <NavLink className="nav-link" to="/about">About</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="#">Privacy</NavLink>
+                        <NavLink className="nav-link" to="/privacy">Privacy</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" to="#">Contact</NavLink>

@@ -20,3 +20,24 @@
 .card-view > .confession-card > .confession-card-body {
     height: 1110px;
 }
+
+.wiki-privacy {
+    margin: auto;
+    font-size: 1.25rem;
+    width: 80%;
+    padding: 1rem;
+    color: #ffffff;
+}
+
+.wiki-privacy > h1 {
+    border-bottom: 1px solid #ffffff;
+    padding: 1rem 0 1rem 0;
+}
+.wiki-privacy > p {
+    padding: 1rem 0 1rem 0;
+}
+
+.bold {
+    font-weight: 500;
+    font-size: 1.30rem;
+}

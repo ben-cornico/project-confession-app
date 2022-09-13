@@ -15,6 +15,11 @@ ul {
     list-style-type: none;
 }
 
+.app-title {
+    text-decoration: none;
+    color: #ffffff;
+}
+
 .app-title > .mdi {
     margin-right: 1rem;;
     font-size: 2rem;

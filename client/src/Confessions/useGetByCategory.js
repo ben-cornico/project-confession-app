@@ -7,7 +7,6 @@ export default function (pageNumber, category) {
     const [hasMore, setHasMore] = useState(false)
     const [confessions, setConfessions] = useState([])
     useEffect(() => {
-      console.log(category)
       axios({
         method: 'GET',
         url: `/confessions/${category}`,
@@ -19,7 +18,6 @@ export default function (pageNumber, category) {
           setConfessions([...confessions, ...res.data]);
         }
         setHasMore(res.data.length > 0)
-        console.log(res.data)
         setLoading(false)
       }).catch(e => {
         if(axios.isCancel(e)) return
