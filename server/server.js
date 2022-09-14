@@ -9,14 +9,15 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+const PORT = process.env.PORT || 4000
+const URI = process.env.CONNECTION_URL || 'mongodb+srv://adminUser:admin@cluster0.jsnrzjq.mongodb.net/confessions_db?retryWrites=true&w=majority'
 
 const mongoose = require('mongoose');
-mongoose.connect(process.env.CONNECTION_URL,{ useNewUrlParser: true , useUnifiedTopology: true })
+mongoose.connect(URI,{ useNewUrlParser: true , useUnifiedTopology: true })
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 //express app
-
 
 app.get('/confessions/search', async (req, res) => {
     const perPage = 15;
@@ -105,6 +106,6 @@ app.get('/', (req, res) => {
 })
 
 //listen for request
-app.listen(4000, () => {
+app.listen(PORT, () => {
     console.log("SERVER CONNTECTED")
 })
