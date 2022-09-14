@@ -73,11 +73,7 @@
 // export default Navbar
 
 import React, { useState, useRef } from 'react'
-<<<<<<< HEAD
-import { NavLink, useNavigate, Link } from 'react-router-dom';
-=======
 import { Link, NavLink, useParams, useNavigate } from 'react-router-dom';
->>>>>>> parent of 5c37837 (code cleanup)
 import './Navbar.css'
 
 function Navbar() {

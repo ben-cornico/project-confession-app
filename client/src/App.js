@@ -5,7 +5,6 @@ import Home from './Pages/Home';
 import SubmitConfession from './Pages/SubmitConfession';
 import Search from './Pages/Search';
 import Category from './Pages/Category';
-<<<<<<< HEAD
 import View from './Pages/View';
 import About from './Pages/About';
 import Privacy from './Pages/Privacy';
@@ -13,13 +12,6 @@ import Privacy from './Pages/Privacy';
 function App() {
   const searchParams = new URLSearchParams(window.location.search).get("search");
   
-=======
-
-function App() {
-  const searchParams = new URLSearchParams(window.location.search).get("search");
-  const [searchString, setSearchString] = useState("");
-
->>>>>>> parent of 5c37837 (code cleanup)
   return (
     <div className='app'>
         <Navbar/>
