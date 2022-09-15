@@ -22,7 +22,7 @@ function Card({data }, ref) {
         </div>
 
         <div className="views-counter">
-            {data.views}
+            VIEWS: {data.views}
         </div>
     </div>
     

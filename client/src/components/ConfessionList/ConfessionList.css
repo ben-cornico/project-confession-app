@@ -1,6 +1,6 @@
 .confession-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 1rem;
     margin-bottom: 5rem;
 }
@@ -34,4 +34,14 @@
 .Other-link {
     background-color: #c2c2c2;
     color: #000;
+}
+
+
+@media (max-width:400px) {
+    .confession-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1rem;
+        margin-bottom: 5rem;
+    }
 }
