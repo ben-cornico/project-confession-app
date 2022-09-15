@@ -20,7 +20,7 @@ function Home() {
     });
   }
   return (
-    <>
+    <div className='confession-container'>
         <CategoryLinks />
         {
           error ? "AN ERROR HAS OCCURED" : (
@@ -29,7 +29,7 @@ function Home() {
           )
         }
 
-    </>
+    </div>
   )
 }
 

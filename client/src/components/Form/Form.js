@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import './Form.css'
-import ReCAPTCHA from 'react-google-recaptcha';
 import axios from '../../Axios';
 import { useNavigate } from 'react-router-dom';
 

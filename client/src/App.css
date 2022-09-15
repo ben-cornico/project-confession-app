@@ -15,3 +15,7 @@
     width: 100%;
     flex-direction: column;
 }
+
+.confession-container {
+    width: 100%
+}

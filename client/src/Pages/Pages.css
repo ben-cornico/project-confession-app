@@ -3,6 +3,7 @@
 .form-page {
     height: 100%;
     background-color: antiquewhite;
+    width: clamp(270px, 100%, 600px)
 }
 
 .card-view {
@@ -21,7 +22,7 @@
     height: 1110px;
 }
 
-.wiki-privacy {
+.privacy, .about {
     margin: auto;
     font-size: 1.25rem;
     width: 80%;
@@ -29,11 +30,11 @@
     color: #ffffff;
 }
 
-.wiki-privacy > h1 {
+.privacy > h1, .about > h1 {
     border-bottom: 1px solid #ffffff;
     padding: 1rem 0 1rem 0;
 }
-.wiki-privacy > p {
+.privacy > p, .about > p {
     padding: 1rem 0 1rem 0;
 }
 

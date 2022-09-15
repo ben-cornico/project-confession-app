@@ -1,9 +1,10 @@
 import React from 'react';
 import './Card.css'
-import moment from 'moment'
+import moment from 'moment';
+import {useNavigate} from 'react-router-dom';
 
 function Card({data }, ref) {
-
+    const navigate = useNavigate()
   return (
     <>
     <div className='confession-card' ref={ref} >
