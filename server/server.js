@@ -64,6 +64,8 @@ app.get('/confessions/:cat', async (req, res) => {
             .skip(perPage * page)
             .limit(perPage)
         res.send(confessions);
+
+
     } catch (error) {
         console.log(error)
     }

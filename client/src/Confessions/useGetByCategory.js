@@ -7,27 +7,25 @@ export default function (pageNumber, category) {
     const [hasMore, setHasMore] = useState(false)
     const [confessions, setConfessions] = useState([])
     useEffect(() => {
-      axios({
-        method: 'GET',
-        url: `/confessions/${category}`,
-        params: {page: pageNumber-1}
-      }).then(res => {
-        if(pageNumber === 1) {
-          setConfessions([...res.data]);
-        } else {
-          setConfessions([...confessions, ...res.data]);
+      const getConfessions = async () => {
+        try {
+          const res = await axios.get(`/confessions/${category}?page=${pageNumber-1}`)
+          
+          if(pageNumber === 1) {
+            //if page 1 starts a new list
+            setConfessions([...res.data]);
+          } else {
+            setConfessions([...confessions, ...res.data]);
+          }
+          setHasMore(res.data.setLoading > 0);
+          setLoading(false)
+        } catch(error) {
+          if(axios.isCancel(error)) return;
+          setError(true)
         }
-        setHasMore(res.data.length > 0)
-        setLoading(false)
-      }).catch(e => {
-        if(axios.isCancel(e)) return
-        setError(true)
-      })
-
-      // axios.get(`/confessions/${category}`)
-      //   .then(res => {
-      //     setConfessions([...confessions, ...res.data]);
-      //   })
+      }
+      
+      getConfessions()
     
     }, [pageNumber, category])
     return {confessions, loading, error, hasMore}
