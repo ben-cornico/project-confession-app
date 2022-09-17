@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from '../Axios'
 
-export default function (pageNumber, category) {
+export default function useGetByCategory (pageNumber, category) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [hasMore, setHasMore] = useState(false)
