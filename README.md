@@ -6,3 +6,6 @@ This project uses mongodb as database
 
 ## Future Implementations
 Will be adding Delete and Edit function
+
+## Live Demo
+https://confessionapp.netlify.app/
